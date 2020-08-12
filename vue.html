@@ -1,22 +1,36 @@
-<div id='app'>
+<html>
+<body>
 
+  <div id='app'>
+    
     <p>Oi, meu nome é: {{nome}}</p>
-
+    
     <label>
-        Nome:
-        <input v-model="nome"></input>
+      Nome:
+      <input v-model="nome"></input>
     </label>
-
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-<script>
-let app = new Vue({
-  el: '#app',
-  data: {
-    nome: ""
-  }
-})
-</script>
+    
+    <button @click="capitalizar">Capitalizar Nome</button>
+    
+    
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data: {
+        nome: ""
+      },
+      methods:{
+        capitalizar(){
+          let primeiraLetra = this.nome.substring(0,1).toUpperCase()
+          let restoDoNome = this.nome.substring(1).toLowerCase()
+          this.nome = primeiraLetra + restoDoNome
+        }
+      }
+    })
+  </script>
+</body>
+</html>
