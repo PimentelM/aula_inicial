@@ -8,7 +8,7 @@
 
   </head>
   <body>
-    <div id="app">
+    <div id="app" v-cloak>
       <v-app>
           <v-app-bar flat  app>
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
@@ -49,6 +49,11 @@
       new Vue({
         el: "#app",
         vuetify: new Vuetify(),
+        data(){
+          return {
+
+          }
+        }
       });
     </script>
   </body>
@@ -67,7 +72,7 @@ body,
 html {
     width: 100%;
     height: 100%;
-    font-family: "Lato";
+    font-family: "Lato"; 
     color: white;
 }
 
@@ -90,5 +95,8 @@ hr {
     border-top: 1px solid #f8f8f8 !important;
     border-bottom: 1px solid rgba(0,0,0,0.2) !important;
 }
+
+[v-cloak] { display: none; }
+
 
 </style>
