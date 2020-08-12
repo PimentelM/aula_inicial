@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet"/>
+
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <div id="app">
+      <v-app>
+          <v-app-bar flat  app>
+            <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+            <v-toolbar-title>Purrfect Match</v-toolbar-title>
+      
+            <v-spacer></v-spacer>
+      
+            <v-btn icon>
+              <v-icon>mdi-heart</v-icon>
+            </v-btn>
+      
+            <v-btn icon>
+              <v-icon>mdi-magnify</v-icon>
+            </v-btn>
+      
+          </v-app-bar>
+        <v-main>
+          <v-container>
+            <v-row>
+              <v-col lg="12">
+                <div class="content">
+                  <h1 class="text-h4">Purrfect Match</h1>
+                  <h2 class="text-h6 mt-3">The Only Human-Feline Dating App</h2>
+                  <v-divider class="mx-auto mt-4 mb-6"></v-divider>
+                  <v-btn color="white" large flat :ripple="false"> <v-icon>mdi-paw</v-icon> Get Started!</v-btn>
+                </div>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-main>
+      </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        vuetify: new Vuetify(),
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+.v-main__wrap {
+	background: url(https://images.unsplash.com/photo-1415369629372-26f2fe60c467?dpr=2&fit=crop&fm=jpg&h=775&q=50&w=1450);
+	background-size: cover;
+	background-position: center;
+	font-family: Lato;
+	color: white;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    font-family: "Lato";
+    color: white;
+}
+
+h1 {
+	font-weight: 700 !important;
+	font-size: 5em !important;
+}
+
+
+.content{
+	padding-top: 25%;
+	text-align: center;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                 0px 8px 13px rgba(0,0,0,0.1),
+                 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+hr {
+    width: 600px !important;
+    border-top: 1px solid #f8f8f8 !important;
+    border-bottom: 1px solid rgba(0,0,0,0.2) !important;
+}
+
+</style>

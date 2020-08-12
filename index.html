@@ -1,0 +1,76 @@
+<script>
+  // Texto
+
+  // Substituir a inicial de cada palavra por maiusculo e o resto minusculo
+
+  function titularizar(texto) {
+    let partes = texto.split(" ");
+    let partesProntas = [];
+
+    for (let parte of partes) {
+      let minusculo = parte.toLowerCase();
+      let capitalizado = minusculo[0].toUpperCase() + minusculo.substring(1);
+      partesProntas.push(capitalizado);
+    }
+
+    return partesProntas.join(" ");
+  }
+
+  // Matematica
+
+
+  // Soma dois números
+  function somar(a, b) {
+    return a + b;
+  }
+
+
+  // Calcula a hipotenusa usando a fórmula de pitagoras: a² + b² = hipotenusa²
+  function pitagoras(cateto1, cateto2) {
+    let somaDoQuadradoDosCatetos = cateto1 ** 2 + cateto2 ** 2;
+
+    let hipotenusa = Math.sqrt(somaDoQuadradoDosCatetos);
+
+    return hipotenusa;
+  }
+
+  // Gera lista de números primos usando algorítimo
+  function gerarListaDeNumerosPrimos(maximo = 100) {
+    let primos = [2];
+    let atual = 3;
+
+    while (atual <= maximo) {
+      let raizDoAtual = Math.sqrt(atual);
+
+      for (let primo of primos) {
+        if (primo > raizDoAtual) {
+          primos.push(atual);
+          break;
+        }
+
+        if (atual % primo === 0) break;
+      }
+
+      atual++;
+    }
+
+    return primos;
+  }
+
+  // Fatora o número por seus divisores primos
+  function fatorar(numero) {
+    let fatores = [];
+    let primos = gerarListaDeNumerosPrimos(Math.sqrt(numero));
+    while (numero !== 1) {
+      for (let primo of primos) {
+        if (numero % primo === 0) {
+          fatores.push(primo);
+          numero /= primo;
+          break;
+        }
+      }
+    }
+
+    return fatores;
+  }
+</script>
