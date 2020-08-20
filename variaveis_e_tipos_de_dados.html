@@ -1,0 +1,254 @@
+<html>
+
+<head>
+  <!-- Tema Vuetify -->
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
+
+  <!-- Fontes   -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+    type="text/css">
+
+
+  <!-- Prism Editor -->
+  <script src="https://unpkg.com/vue-prism-editor"></script>
+  <link rel="stylesheet" href="https://unpkg.com/vue-prism-editor/dist/prismeditor.min.css" />
+
+  <!-- custom highlighter: -->
+  <script src="https://unpkg.com/prismjs/prism.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/prismjs/themes/prism-tomorrow.css" />
+
+
+
+  <!-- Css -->
+  <style>
+    .height-200 {
+      height: 200px
+    }
+
+    .my-editor {
+      /* we dont use `language-` classes anymore so thats why we need to add background and text color manually */
+      background: #2d2d2d;
+      color: #ccc;
+
+      /* you must provide font-family font-size line-height. Example:*/
+      font-family: Fira code, Fira Mono, Consolas, Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 5px;
+    }
+
+    /* optional class for removing the outline */
+    .prism-editor__textarea:focus {
+      outline: none;
+    }
+
+    .v-main {
+      background-color: #fffcd6;
+      background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
+      background-repeat: repeat;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <v-app>
+      <v-main>
+        <v-container>
+          <v-row justify="center">
+            <v-col cols="10">
+              <v-sheet class="py-8 mt-3 px-8" style="border-radius: 3%;">
+                <h1 class="center">Operações básicas com dados</h1>
+
+                <v-row>
+                  <v-col cols=12>
+                    <h2>Strings ( Textos )</h2>
+                  </v-col>
+
+
+
+                  <v-col cols="12">
+                    <h4>Concatenação ( união de strings )</h4>
+                    <div class="caption">Operador <strong>+</strong></div>
+                  </v-col>
+
+
+                  <v-col class="mb-0 pb-0" cols=6>
+                    <v-text-field class="mb-0 pb-0" label="Parte A" dense placeholder="Digite algo aqui"
+                      v-model="parteA"></v-text-field>
+                  </v-col>
+
+                  <v-col class="mb-0 pb-0" cols=6>
+                    <v-text-field class="mb-0 pb-0" label="Parte B" dense placeholder="Digite algo aqui"
+                      v-model="parteB"></v-text-field>
+                  </v-col>
+
+                  <v-col cols="12" class="caption mt-0 pt-0"><code>'{{parteA}}' + '{{parteB}}'</code>
+                    :
+                    <code>
+                      '{{ parteA + parteB}}'
+                    </code>
+                  </v-col>
+
+
+
+                  <v-col cols="12">
+                    <h4>Replace ( substituição de texto )</h4>
+                    <div class="caption">Método <strong>.replace</strong></div>
+                  </v-col>
+
+                  <v-col class="mb-0 pb-0" cols=6>
+                    <v-text-field class="mb-0 pb-0" label="Texto Inteiro" dense placeholder="Digite algo aqui"
+                      v-model="replaceString"></v-text-field>
+                  </v-col>
+
+                  <v-col class="mb-0 pb-0" cols=3>
+                    <v-text-field class="mb-0 pb-0" label="Texto à ser substituido" dense placeholder="Digite algo aqui"
+                      v-model="replaceThis"></v-text-field>
+                  </v-col>
+
+                  <v-col class="mb-0 pb-0" cols=3>
+                    <v-text-field class="mb-0 pb-0" label="Texto que irá substituir" dense
+                      placeholder="Digite algo aqui" v-model="replaceWith"></v-text-field>
+                  </v-col>
+
+                  <v-col cols="12" class="caption mt-0 pt-0">
+                    <code>'{{replaceString}}'.replace('{{replaceThis}}','{{replaceWith}}')</code>
+                    :
+                    <code>
+                      '{{ replaceString.replace(replaceThis,replaceWith)}}'
+                    </code>
+                  </v-col>
+
+
+                  <v-col cols="12">
+                    <h4>Alterar o casing ( Maiusculo ou Minusculo )</h4>
+                    <div class="caption">Método <strong>.toUpperCase // .toLowerCase</strong></div>
+                  </v-col>
+
+                  <v-col cols=6>
+                    <v-text-field label="Texto" placeholder="Digite algo aqui"
+                      v-model="casingString"></v-text-field>
+                  </v-col>
+
+                  <v-col cols="6">
+                    <v-autocomplete v-model="letterCasing" label="Transformar o texto em" :items="[`Maiusculo`, `Minusculo`]">
+
+                    </v-autocomplete>
+                  </v-col>
+
+                  <v-col v-if="letterCasing === 'Minusculo'" cols="12" class="caption mt-0 pt-0">
+                    <code>'{{casingString}}'.toLowerCase()</code>
+                    :
+                    <code>
+                      '{{ casingString.toLowerCase()}}'
+                    </code>
+                  </v-col>
+
+                  <v-col v-else cols="12" class="caption mt-0 pt-0">
+                    <code>'{{casingString}}'.toUpperCase()</code>
+                    :
+                    <code>
+                      '{{ casingString.toUpperCase()}}'
+                    </code>
+                  </v-col>
+
+
+                  <v-col cols="12">
+                    <h4>Tamanho da string</h4>
+                    <div class="caption">Propriedade <strong>.length</strong></div>
+                  </v-col>
+
+
+                  <v-col cols="12">
+                    <h4>Substring</h4>
+                    <div class="caption">Método <strong>.subString</strong></div>
+                  </v-col>
+
+
+                  <v-col cols="12">
+                    <h4>Split</h4>
+                    <div class="caption">Método <strong>.split</strong></div>
+                  </v-col>
+
+
+                  <v-col cols="12">
+                    <h2>Números</h2>
+                  </v-col>
+
+
+                  <v-col cols="12">
+
+                  </v-col>
+
+
+                  <v-col cols="12">
+
+                  </v-col>
+
+
+
+                  <v-col cols="12">
+
+                  </v-col>
+
+
+                  <v-col cols="12">
+
+                  </v-col>
+
+
+                  <v-col cols="12">
+
+                  </v-col>
+
+
+                </v-row>
+
+
+              </v-sheet>
+            </v-col>
+          </v-row>
+          <v-row>
+        </v-container>
+      </v-main>
+    </v-app>
+  </div>
+
+  <!-- Vue e Vuetify -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+  <!-- Javascript -->
+  <script>
+    new Vue({
+      el: "#app",
+      vuetify: new Vuetify({
+        theme: {
+          disable: true
+        }
+      }),
+      data() {
+        return {
+          parteA: `abc`,
+          parteB: `123`,
+          replaceString: "Me chamo Jackie Chan",
+          replaceThis: "Jackie Chan",
+          replaceWith: "Tiririca",
+          casingString: "aAbCdEF",
+          letterCasing: "Maiusculo"
+        }
+      },
+      methods: {
+        highlighter(code) {
+          // js highlight example
+          return Prism.highlight(code, Prism.languages.js, "js");
+        }
+      },
+    });
+  </script>
+</body>
+
+</html>
