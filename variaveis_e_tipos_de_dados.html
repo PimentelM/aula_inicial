@@ -45,8 +45,9 @@
     }
 
     .v-main {
-      background-color: #fffcd6;
-      background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
+      background-color: #566b54;
+      background-image: url("https://www.transparenttextures.com/patterns/football-no-lines.png");
+      /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
       background-repeat: repeat;
     }
   </style>
@@ -129,12 +130,12 @@
                   </v-col>
 
                   <v-col cols=6>
-                    <v-text-field label="Texto" placeholder="Digite algo aqui"
-                      v-model="casingString"></v-text-field>
+                    <v-text-field label="Texto" placeholder="Digite algo aqui" v-model="casingString"></v-text-field>
                   </v-col>
 
                   <v-col cols="6">
-                    <v-autocomplete v-model="letterCasing" label="Transformar o texto em" :items="[`Maiusculo`, `Minusculo`]">
+                    <v-autocomplete v-model="letterCasing" label="Transformar o texto em"
+                      :items="[`Maiusculo`, `Minusculo`]">
 
                     </v-autocomplete>
                   </v-col>
